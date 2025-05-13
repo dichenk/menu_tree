@@ -1,0 +1,30 @@
+{# templates/base.html #}
+{% load draw_menu %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Мой сайт{% endblock %}</title>
+  <style>
+    ul { list-style: none; padding-left: 1rem; }
+    .active > a { font-weight: bold; color: red; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Заголовок сайта</h1>
+    <nav>
+      {% draw_menu 'main_menu' %}
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}
+    <p>Содержимое страницы</p>
+    {% endblock %}
+  </main>
+
+</body>
+</html>
